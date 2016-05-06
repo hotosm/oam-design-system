@@ -45,6 +45,12 @@ Add the module path to the `includePaths` of gulp-sass. Should look something li
 }))
 ```
 
+The `oam-design-system` uses **Open Sans** which is available on [Google Fonts](https://goo.gl/FZ0Ave).  
+It needs to be included in the app:
+```
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" />
+```
+
 **USAGE**  
 Now you can include it in the main scss file:
 ```scss
