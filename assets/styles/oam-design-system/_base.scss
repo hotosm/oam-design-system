@@ -58,11 +58,11 @@ a:visited {
   color: $link-color;
 }
 
-a:not([class^="button"]):not([class*=" button"]):hover {
+a:hover {
   opacity: 0.64;
 }
 
-a:not([class^="button"]):not([class*=" button"]):active {
+a:active {
   outline: none;
   transform: translate(0, 1px);
 }

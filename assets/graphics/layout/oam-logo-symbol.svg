@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="32px" height="32px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-	.st1{fill:#E4E8E9;}
-	.st2{fill:#68C39F;}
-	.st3{fill:#449BB5;}
-	.st4{fill:#B8C1C4;}
-	.st5{fill:#D2D8DA;}
-	.st6{fill:#DBE0E1;}
-	.st7{fill:#EDEFF0;}
-</style>
-<g>
-	<polygon class="st0" points="0,22.4 16,0 32,22.4 28.8,32 22.4,30.4 16,25.6 9.6,30.4 3.2,32 	"/>
-	<polygon class="st1" points="8,25.6 8,30.8 9.6,30.4 10.6,25.6 	"/>
-	<polygon class="st1" points="11.3,22.4 11.3,22.4 16,0 8,11.2 8,22.4 	"/>
-	<polygon class="st2" points="32,22.4 24,11.2 24,22.4 	"/>
-	<polygon class="st1" points="20.7,22.4 20.8,22.4 20.8,6.7 16,0 20.7,22.4 	"/>
-	<polygon class="st3" points="0,22.4 3.2,32 4.8,31.6 4.8,15.7 	"/>
-	<polygon class="st1" points="22.4,30.4 28.8,32 30.9,25.6 21.4,25.6 	"/>
-	<polygon class="st4" points="10.6,25.6 10.6,25.6 9.6,30.4 16,25.6 16,22.4 	"/>
-	<polygon class="st4" points="16,19.2 16,0 11.3,22.4 	"/>
-	<polygon class="st5" points="20.7,22.4 16,0 16,19.2 	"/>
-	<polygon class="st5" points="21.4,25.6 16,22.4 16,25.6 22.4,30.4 21.4,25.6 	"/>
-	<polygon class="st6" points="11.3,22.4 10.6,25.6 16,22.4 16,19.2 	"/>
-	<polygon class="st0" points="10.6,25.6 11.3,22.4 8,22.4 8,11.2 4.8,15.7 4.8,31.6 8,30.8 8,25.6 	"/>
-	<polygon class="st0" points="10.6,25.6 10.6,25.6 11.2,22.8 	"/>
-	<polygon class="st0" points="32,22.4 24,22.4 24,11.2 20.8,6.7 20.8,22.4 20.7,22.4 21.4,25.6 30.9,25.6 32,22.4 	"/>
-	<polygon class="st0" points="21.4,25.6 20.8,22.8 21.4,25.6 	"/>
-	<polygon class="st7" points="16,19.2 16,22.4 21.4,25.6 20.7,22.4 	"/>
-</g>
+<svg version="1.1" id="oam-logo-symbol" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="640px" height="640px" viewBox="0 0 640 640" enable-background="new 0 0 640 640" xml:space="preserve">
+	<g>
+		<polygon fill="#FFFFFF" points="0,448 320,0 640,448 576,640 448,608 320,512 192,608 64,640 	"/>
+		<polygon fill="#E4E8E9" points="160,512 160,616 192,608 212.2,512 	"/>
+		<polygon fill="#E4E8E9" points="225.7,448 225.7,448 320,0 160,224 160,448 	"/>
+		<polygon fill="#68C39F" points="640,448 480,224 480,448 	"/>
+		<polygon fill="#E4E8E9" points="414.3,448 416,448 416,134.4 320,0 414.3,448 	"/>
+		<polygon fill="#449BB5" points="0,448 64,640 96,632 96,313.6 	"/>
+		<polygon fill="#E4E8E9" points="448,608 576,640 618.7,512 427.8,512 	"/>
+		<polygon fill="#B8C1C4" points="212.2,512 212.2,512 192,608 320,512 320,448 	"/>
+		<polygon fill="#B8C1C4" points="320,384 320,0 225.7,448 	"/>
+		<polygon fill="#D2D8DA" points="414.3,448 320,0 320,384 	"/>
+		<polygon fill="#D2D8DA" points="427.8,512 320,448 320,512 448,608 427.8,512 	"/>
+		<polygon fill="#DBE0E1" points="225.7,448 212.2,512 320,448 320,384 	"/>
+		<polygon fill="#FFFFFF" points="212.2,512 225.7,448 160,448 160,224 96,313.6 96,632 160,616 160,512 	"/>
+		<polygon fill="#FFFFFF" points="212.2,512 212.2,512 224,456 	"/>
+		<polygon fill="#FFFFFF" points="640,448 480,448 480,224 416,134.4 416,448 414.3,448 427.8,512 618.7,512 640,448 	"/>
+		<polygon fill="#FFFFFF" points="427.8,512 416,456 427.8,512 	"/>
+		<polygon fill="#EDEFF0" points="320,384 320,448 427.8,512 414.3,448 	"/>
+	</g>
 </svg>
