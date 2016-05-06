@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Media
+   ========================================================================== */
+
+.image-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-full {
+  width: 100%;
+  height: auto;
+}
+
+
+/* Aligning
+   ========================================================================== */
+
+img.align-center,
+figure.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+img.align-left,
+figure.align-left {
+  float: left;
+  margin-right: $global-spacing * 1.5;
+}
+
+img.align-right,
+figure.align-right {
+  float: right;
+  margin-left:  $global-spacing * 1.5;
+}
