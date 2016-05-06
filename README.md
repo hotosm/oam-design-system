@@ -33,7 +33,7 @@ If you want to minimize bundle size you can also include the components directly
 Bindings exported from `oam-design-system` are also available in `oam-design-system/assets/scripts`
 
 ### assets/styles
-General styles. Requires burbon. [Add more info]
+Requires [Bourbon](https://github.com/lacroixdesign/node-bourbon) and [Jeet](https://github.com/mojotech/jeet).
 
 **INSTALLATION**  
 Add the module path to the `includePaths` of gulp-sass. Should look something like:
@@ -61,8 +61,6 @@ Now you can include it in the main scss file:
 
 @import "oam-design-system";
 ```
-In case you don't need all the elements, they can be individually imported.  
-[link to the file on github - it's easier.]
 
 ### assets/icons
 The `oam-design-system` includes svg icons that are compiled into a webfont and included in the styles.  
@@ -97,5 +95,5 @@ gulp.task('images', function () {
 ```
 
 **USAGE**  
-Just include the images from the list using the path `assets/graphics/[graphic-type]/[graphic-name]`:  
-[link to the file list on github - it's easier.]
+Just include the images using the path `assets/graphics/[graphic-type]/[graphic-name]`.  
+All available images can be found [here](assets/graphics/).
