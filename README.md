@@ -72,7 +72,7 @@ Should look something like:
 browserSync({
   port: 3000,
   server: {
-    baseDir: ['.tmp', '_site'],
+    baseDir: ['.tmp', 'app'],
     routes: {
       '/node_modules': './node_modules'
     },
@@ -86,7 +86,7 @@ You also need to ensure that the images are copied over on build.
 This ensures that the graphics are copied over when building the project.
 ```js
 gulp.task('images', function () {
-  return gulp.src(['_site/assets/graphics/**/*', require('oam-design-system/gulp-addons').graphicsPath + '/**/*'])
+  return gulp.src(['app/assets/graphics/**/*', require('oam-design-system/gulp-addons').graphicsPath + '/**/*'])
     .pipe($.cache($.imagemin({
 ```
 
