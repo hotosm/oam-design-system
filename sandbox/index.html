@@ -79,7 +79,111 @@
                 <!-- page main content -->
                 <div class="page__main-content">
                   
-                  <p>Hello world!</p>
+                  <h2>Forms</h2>
+                  <form id="upload-form" class="form form--horizontal">
+                    <fieldset class="form__fieldset">
+                      <legend class="form__legend">Fieldset legend 1</legend>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-name">Name</label>
+                        <input type="text" class="form__control" id="form-name" name="form-name" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-email">Email</label>
+                        <input type="email" class="form__control" id="form-email" name="form-email" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label">Radio options</label>
+
+                        <label class="form__option form__option--inline form__option--custom-radio">
+                          <input type="radio" name="form-radio" id="form-radio-1" value="Radio 1" checked />
+                          <span class="form__option__text">Radio 1</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                        <label class="form__option form__option--inline form__option--custom-radio">
+                          <input type="radio" name="form-radio" id="form-radio-2" value="Radio 2" />
+                          <span class="form__option__text">Radio 2</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="form__fieldset">
+                      <legend class="form__legend">Fieldset legend 2</legend>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-select-1">Select</label>
+                        <select class="form__control form__control--medium" id="form-select-1">
+                          <option>Option 1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-name">Small</label>
+                        <input type="text" class="form__control form__control--small" id="form-name" name="form-name" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-name">Medium</label>
+                        <input type="text" class="form__control form__control--medium" id="form-name" name="form-name" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-name">Large</label>
+                        <input type="text" class="form__control form__control--large" id="form-name" name="form-name" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-name">XLarge</label>
+                        <input type="text" class="form__control form__control--xlarge" id="form-name" name="form-name" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label">Checkbox options</label>
+                        <label class="form__option form__option--custom-checkbox">
+                          <input type="checkbox" name="form-checkbox" id="form-checkbox-1" value="Checkbox 1" />
+                          <span class="form__option__text">Checkbox 1</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                        <label class="form__option form__option--custom-checkbox">
+                          <input type="checkbox" name="form-checkbox" value="form-checkbox-2" />
+                          <span class="form__option__text">Checkbox 2</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                        <label class="form__option form__option--custom-checkbox">
+                          <input type="checkbox" name="form-checkbox" value="form-checkbox-3" />
+                          <span class="form__option__text">Checkbox 3</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="form__fieldset">
+                      <legend class="form__legend">Fieldset legend 3</legend>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-name">Input group</label>
+                        <div class="form__input-group">
+                          <input class="form__control form__control--medium" type="search" placeholder="Search location">
+                          <span class="form__input-group-button"><button type="submit" class="button button--achromic button--text-hidden button--medium button--example-icon"><span>Button</span></button></span>
+                        </div>
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-name">Input group</label>
+                        <div class="form__input-group">
+                          <span class="form__input-group-button"><button type="submit" class="button button--achromic button--text-hidden button--medium button--example-icon"><span>Button</span></button></span>
+                          <input class="form__control form__control--medium" type="search" placeholder="Search location">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
 
                 </div>
                 <!--/ page main content -->

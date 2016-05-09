@@ -109,7 +109,7 @@
   @include button-variation("filled", "dark", $secondary-color);
 }
 
-/* Secondary */
+/* Secondary Unbounded */
 
 .button--secondary-unbounded {
   @include button-variation("unbounded", null, $secondary-color);
@@ -146,9 +146,19 @@
 .button--large,
 .button-group--large .button {
   line-height: 1.5rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
   padding: 0.5rem 1rem;
   min-width: 2.5rem;
+}
+
+/* XLarge (48px) */
+
+.button--xlarge,
+.button-group--xlarge .button {
+  line-height: 2rem;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  min-width: 3rem;
 }
 
 
