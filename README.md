@@ -8,9 +8,9 @@ The following guide explains how to use the `oam-design-system` in a new project
 
 Style guide and UI components library that aims to standardize the look and feel across all OAM-related applications, while defining coding best practices and conventions.
 
-Install it as an `npm` module: (not available yet)
+Install it as an `npm` module: (module not available yet. use direct link)
 ```
-npm install oam-design-system
+npm install https://github.com/hotosm/oam-design-system#v0.1.1-alpha
 ```
 
 **Note:**
