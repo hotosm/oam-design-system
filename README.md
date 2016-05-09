@@ -2,7 +2,9 @@
 
 **Work in progress.** Use at your own risk!  
 
-The following guide explains how to use the `oam-design-system` in a new project. For information on how to develop the `oam-design-system` checkout the [DEVELOPMENT.md](DEVELOPMENT.md)  
+The following guide only explains how to include the `oam-design-system` in a new project. For usage information check the [documentation website](http://hotosm.github.io/oam-docs/).  
+
+For information on how to develop the `oam-design-system` checkout the [DEVELOPMENT.md](DEVELOPMENT.md)  
 
 ---
 
@@ -12,6 +14,7 @@ Install it as an `npm` module: (module not available yet. use direct link)
 ```
 npm install https://github.com/hotosm/oam-design-system#v0.1.1-alpha
 ```
+For the most recent version omit the tag.
 
 **Note:**
 This design system makes some assumptions which are described below for each of the elements.  

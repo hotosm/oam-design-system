@@ -4,10 +4,7 @@
 
 .panel {
   @extend %base-inset-skin;
-  position: absolute;
-  z-index: 200;
-  top: 0;
-  left: 0;
+  position: relative;
   font-size: 1rem;
   line-height: 1.5;
   &__headline,
@@ -87,10 +84,13 @@
 .panel__body {
   position: relative;
   z-index: 1;
-  padding: $global-spacing;
   > *:last-child {
     margin-bottom: 0;
   }
+}
+
+.panel__body-inner {
+  padding: $global-spacing;
 }
 
 .panel-blank-message {
