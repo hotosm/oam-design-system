@@ -2,10 +2,13 @@
    Forms
    ========================================================================== */
 
-.form__control {
-  @include placeholder {
-    color: rgba($base-font-color, 0.64);
+.form {
+  > *:last-child {
+    margin-bottom: 0;
   }
+}
+
+.form__control {
   display: block;
   width: 100%;
   padding: 0.25rem 0.5rem;
@@ -16,9 +19,23 @@
   border: 0;
   border-radius: $base-border-radius;
   font-family: inherit;
-  transform: translateZ(0);
-  box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.12);
-  
+  box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.16);
+
+  /* Placeholder */
+  &::placeholder {
+    opacity: 0.64;
+  }
+
+  /* States */
+  &[disabled] {
+    @extend .disabled;
+  }
+
+  &[readonly] {
+    cursor: text;
+    opacity: 0.64;
+  }
+
   &:focus {
     outline: 0;
     box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.32);
@@ -26,85 +43,120 @@
 
   /* Animation */
   transition: all 0.24s ease 0s;
+  transform: translateZ(0);
 }
 
+/* Select */
+
 select.form__control {
-  box-shadow: inset 0 -2px 0 0 rgba($base-color, 0.08);
+  box-shadow: inset 0 -3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.16);
   cursor: pointer;
 }
 
-.form__control[disabled]
-fieldset[disabled] .form__control {
-  @extend .disabled;
-}
-
-.form__control[readonly] {
-  cursor: text;
-  opacity: 0.64;
-}
+/* Textarea */
 
 textarea.form__control {
   height: auto;
+  resize: vertical;
 }
 
-input[type="search"] {
-  -webkit-appearance: none;
-}
 
-.input-m {
-  padding: 0.5rem 0.5rem;
+/* Form control size modifiers
+   ========================================================================== */
+
+/* Small (24px) */
+
+.form__control--small {
+  padding: 0.125rem 0.5rem;
   font-size: 0.875rem;
+  line-height: 1.25rem;
+  height: 1.5rem;
+}
+
+/* Medium (32px)
+   Default
+*/
+
+.form__control--medium {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   height: 2rem;
 }
 
-.input-l {
-  padding: 0.5rem 1rem;
+/* Large (40px) */
+
+.form__control--large {
+  padding: 0.5rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5rem;
   height: 2.5rem;
 }
 
-.input-xl {
-  padding: 0.5rem 1rem;
+/* XLarge (48px) */
+
+.form__control--xlarge {
+  padding: 0.5rem 0.75rem;
   font-size: 1.25rem;
   line-height: 2rem;
   height: 3rem;
 }
 
+
+/* Form groups
+   ========================================================================== */
+
 .form__group {
-  margin-bottom: 1rem;
+  margin-bottom: $global-spacing;
   @extend .clearfix;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
-.input-group {
+
+/* Input groups
+   ========================================================================== */
+
+.form__input-group {
   position: relative;
   display: table;
   border-collapse: separate;
   width: 100%;
 }
 
-.input-group .form__control:first-child,
-.input-group-addon:first-child,
-.input-group-bttn:first-child > .bttn,
-.input-group-bttn:first-child > .bttn-group > .bttn,
-.input-group-bttn:first-child > .dropdown-toggle,
-.input-group-bttn:last-child > .bttn-group:not(:last-child) > .bttn {
+.form__input-group-button:first-child > .button,
+.form__input-group-button:first-child > .button-group {
+  z-index: 2;
+  margin-right: -1px;
+}
+
+.form__input-group-button:last-child > .button,
+.form__input-group-button:last-child > .button-group {
+  z-index: 2;
+  margin-left: -1px;
+}
+
+.form__input-group .form__control:first-child,
+.form__input-group-button:first-child > .button,
+.form__input-group-button:first-child > .button-group > .button,
+.form__input-group-button:first-child > .dropdown-toggle,
+.form__input-group-button:last-child > .button-group:not(:last-child) > .button {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.input-group .form__control:last-child,
-.input-group-addon:last-child,
-.input-group-bttn:first-child > .bttn-group:not(:first-child) > .bttn,
-.input-group-bttn:first-child > .bttn:not(:first-child),
-.input-group-bttn:last-child > .bttn,
-.input-group-bttn:last-child > .bttn-group > .bttn {
+.form__input-group .form__control:last-child,
+.form__input-group-button:first-child > .button-group:not(:first-child) > .button,
+.form__input-group-button:first-child > .button:not(:first-child),
+.form__input-group-button:last-child > .button,
+.form__input-group-button:last-child > .button-group > .button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.input-group .form__control {
+.form__input-group .form__control {
   position: relative;
   float: left;
   width: 100%;
@@ -114,7 +166,7 @@ input[type="search"] {
   }
 }
 
-.input-group-bttn {
+.form__input-group-button {
   position: relative;
   font-size: 0;
   width: 1%;
@@ -122,216 +174,178 @@ input[type="search"] {
   vertical-align: middle;
 }
 
-.input-group .form__control,
-.input-group-bttn {
+.form__input-group .form__control,
+.form__input-group-button {
   display: table-cell;
 }
 
-legend,
-label {
-  font: inherit;
-  color: inherit;
-}
 
-fieldset {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  min-width: 0;
-}
-
-legend {
-  margin: 0 0 1rem 0;
-  padding: 0;
-  font-size: 1rem;
-  display: block;
-  width: 100%;
-  line-height: inherit;
-  border: 0;
-  @include media(medium-up) {
-    margin-bottom: 1.5rem;
-  }
-}
-
-label {
-  display: inline-block;
-  width: auto;
-  max-width: 100%;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  min-height: 1.5rem;
-  padding: 0;
-  font-family: $base-font-family;
-}
-
-input[type=checkbox],
-input[type=radio] {
-  margin: 0.25rem 0 0;
-  margin-top: 1px \9;
-  line-height: normal;
-}
+/* Form fieldsets
+   ========================================================================== */
 
 .form__fieldset {
-  margin-bottom: 2rem;
+  padding: 0 0 ($global-spacing * 1.5) 0;
+  margin: 0 0 ($global-spacing * 1.5) 0;
+  border: 0;
+  position: relative;
+  box-shadow: inset 0 -1px 0 0 $base-alpha-color;
+
+  &:last-child {
+    padding-bottom: 0;
+    box-shadow: none;
+  }
+
   > *:last-child {
     margin-bottom: 0;
   }
 }
 
 .form__legend {
-  font-family: $base-font-family;
-  font-weight: $base-font-bold;
-  @include heading(1.25rem);
-}
-
-.checkbox,
-.radio {
-  position: relative;
+  @extend .heading-alt;
   display: block;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  vertical-align: middle;
-  label {
-    padding-left: 1.25rem;
-    margin-bottom: 0;
-    font-weight: inherit;
-    cursor: pointer;
+  width: 100%;
+  border: 0;
+  margin: 0 0 $global-spacing 0;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+
+/* Form labels
+   ========================================================================== */
+
+label[for] {
+  cursor: pointer;
+}
+
+.form__label {
+  display: block;
+  font-weight: $base-font-bold;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 ($global-spacing / 2) 0;
+}
+
+
+/* Form options (radios and checkboxes)
+   ========================================================================== */
+
+.form__option {
+  position: relative;
+  display: inline-block;
+  margin-bottom: $global-spacing;
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  padding-left: $global-spacing * 1.25;
+  input {
+    position: absolute;
+    top: $global-spacing / 4;
+    left: 0;
   }
 }
 
-.checkbox input[type=checkbox],
-.checkbox-inline input[type=checkbox],
-.radio input[type=radio],
-.radio-inline input[type=radio] {
-  position: absolute;
-  margin-top: 0.25rem;
-  margin-left: -1.25rem;
+.form__option:not(.form__option--inline) {
+  display: table; // Hack-ish. Please fix me.
+}
+
+.form__option + .form__option {
+  margin-top: - $global-spacing / 2;
+}
+
+/* Form option inline modifier */
+
+.form__option--inline {
+  display: inline-block;
+}
+
+.form__option--inline + .form__option--inline {
+  margin-left: $global-spacing;
 }
 
 
-// FORM HORIZONTAL
+/* Form custom options modifiers (radios and checkboxes)
+   ========================================================================== */
 
-.form__horizontal {
-  @extend .clearfix;
-}
+.form__option--custom-radio,
+.form__option--custom-checkbox {
+  padding-left: $global-spacing * 2;
 
-.form__horizontal .form__label {
-  &.none {
-    @include media(xsmall-only) {
-      border: 0 none;
-      clip: rect(0px, 0px, 0px, 0px);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
+  input {
+    @extend .visually-hidden;
+  }
+
+  .form__option__ui {
+    position: absolute;
+    top: 0;
+    left: 0;;
+    height: 1.5rem;
+    width: 1.5rem;
+    box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.16);
+    background: #fff;
+    transition: all 0.24s ease 0s;
+
+    &:before {
       position: absolute;
-      width: 1px;
-    }
-    @include media(small-only) {
-      border: 0 none;
-      clip: rect(0px, 0px, 0px, 0px);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.16s ease 0s;
     }
   }
-  // @include media(medium-up) {
-  //   @include span-columns(2 of 8);
-  //   padding-top: 0.125rem;
-  // }
+
+  &:focus,
+  &:active {
+    .form__option__ui {
+      box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.32);
+    }
+  }
+
+  input:checked ~ .form__option__ui:before {
+    opacity: 1;
+  }
 }
 
-.form__horizontal .form__control-set,
-.form__horizontal .form__options-set {
-  // @include media(medium-up) {
-  //   @include span-columns(6 of 8);
-  // }
+.form__option--custom-radio {
+  .form__option__ui {
+    &, &:before {
+      border-radius: $full-border-radius;
+    }
+
+    &:before {
+      content: "";
+      height: 0.5rem;
+      width: 0.5rem;
+      background: rgba($base-color, 0.80);
+    }
+  }
 }
 
-.form__horizontal .form__options-set {
-  // @include media(small-up) {
-  //   > * {
-  //     @include span-columns(4);
-  //     @include omega(2n);
-  //   }
-  // }
-  // @include media(medium-up) {
-  //   > * {
-  //     @include span-columns(4);
-  //     @include omega-reset(2n);
-  //     @include omega(3n);
-  //   }
-  // }
+.form__option--custom-checkbox {
+  .form__option__ui {
+    &, &:before {
+      border-radius: $base-border-radius;
+    }
+
+    &:before {
+      @extend %oam-ds-icon-sm-tick;
+      color: rgba($base-color, 0.80);
+    }
+  }
 }
+
+/* Form misc
+   ========================================================================== */
 
 .form__help {
-  margin-top: 0.5rem;
-  opacity: 0.64;
-}
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba($base-font-color, 0.64);
+  margin-top: $global-spacing / 2;
 
-.form__horizontal .form__note {
-  margin-bottom: 2rem;
   > *:last-child {
     margin-bottom: 0;
-  }
-}
-
-.form__horizontal .form__actions,
-.form__horizontal .form__extra-actions,
-.form__horizontal .form__note {
-  // @include media(medium-up) {
-  //   @include span-columns(6 of 8);
-  //   @include shift(2);
-  //   margin-right: 0;
-  // }
-}
-
-.form__horizontal .form__extra-actions {
-  margin-bottom: 2rem;
-}
-
-// UPLOAD FORM
-
-.upload-panel {
-  position: relative !important;
-}
-
-#upload-form {
-  .form__fieldset {
-    position: relative;
-    padding: 0 0 1.5rem 0;
-    margin: 0 0 1.5rem 0;
-    > *:last-child {
-      margin-bottom: 0;
-    }
-    &:after {
-      position: absolute;
-      bottom: 0;
-      left: -1rem;
-      right: -1rem;
-      height: 1px;
-      background: $base-alpha-color;
-      content: "";
-    }
-  }
-  .form__legend {
-    float: left;
-  }
-  .form__fieldset-actions {
-    position: absolute;
-    right: 0;
-    top: -0.25rem;
-  }
-  .form__actions {
-    padding-bottom: 1rem;
-  }
-  .label-link {
-    font-size: 0.875rem;
-    font-weight: $base-font-weight;
   }
 }

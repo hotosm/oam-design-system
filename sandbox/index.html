@@ -3,10 +3,37 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="{{ meta_introduction }}" />
+    <meta name="description" content="Testing OpenAerialMap Design System." />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Playground</title>
+    <title>Sandbox — OpenAerialMap Design System</title>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@hotosm" />
+    <meta name="twitter:title" content="Sandbox — OpenAerialMap Design System">
+    <meta name="twitter:description" content="Testing OpenAerialMap Design System." />
+    <meta name="twitter:image:src" content="assets/graphics/meta/default-meta-image.png" />
+    <!--/ Twitter --> 
+
+    <!-- OG -->
+    <meta property="og:site_name" content="Sandbox — OpenAerialMap Design System" />
+    <meta property="og:title" content="Sandbox — OpenAerialMap Design System" />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Testing OpenAerialMap Design System." />
+    <meta property="og:image" content="assets/graphics/meta/default-meta-image.png" />
+    <!--/ OG -->
+
+    <link rel="shortcut icon" href="assets/graphics/meta/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/graphics/meta/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/graphics/meta/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/graphics/meta/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/graphics/meta/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/graphics/meta/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/graphics/meta/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/graphics/meta/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/graphics/meta/apple-touch-icon-152x152.png" />
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" />
 
@@ -20,7 +47,171 @@
   </head>
   <body>
     <div class="site-canvas">
-      Hello!
+      <header class="site-header" role="banner">
+        <div class="inner">
+          <div class="site-headline">
+            <h1 class="site-title">
+              <a href="/" title="Visit homepage">
+                <img src="{{ site.baseurl }}/assets/graphics/layout/oam-logo-h-pos.svg" width="832" height="160" alt="OpenAerialMap logo" class="site-title__logo" />
+                <span class="site-title__text">OpenAerialMap</span>
+                <small class="site-title__label">Design System</small>
+              </a>
+            </h1>        
+          </div>
+        </div>
+      </header>
+      <main class="site-body" role="main">
+        <div class="inner">
+          <section class="page page--docs">
+            <header class="page__header">
+              <div class="inner">
+                <div class="page__headline">
+                  <h1 class="page__title">Sandbox</h1>
+                  <div class="page__introduction">
+                    <p>Testing OpenAerialMap Design System.</p>
+                  </div>
+                </div>
+              </div>         
+            </header>
+            <div class="page__body">
+              <div class="inner">
+
+                <!-- page main content -->
+                <div class="page__main-content">
+                  
+                  <h2>Forms</h2>
+                  <form id="upload-form" class="form form--horizontal">
+                    <fieldset class="form__fieldset">
+                      <legend class="form__legend">Fieldset legend 1</legend>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-name">Input text</label>
+                        <input type="text" class="form__control form__control--medium" id="form-name" name="form-name" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-email">Input email</label>
+                        <input type="email" class="form__control form__control--medium" id="form-email" name="form-email" placeholder="This is a placeholder" />
+                        <div class="form__help">
+                          <p>This is some help text.</p>
+                        </div>
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label">Radio options (custom)</label>
+
+                        <label class="form__option form__option--inline form__option--custom-radio">
+                          <input type="radio" name="form-radio" id="form-radio-1" value="Radio 1" checked />
+                          <span class="form__option__text">Radio 1</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                        <label class="form__option form__option--inline form__option--custom-radio">
+                          <input type="radio" name="form-radio" id="form-radio-2" value="Radio 2" />
+                          <span class="form__option__text">Radio 2</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="form__fieldset">
+                      <legend class="form__legend">Fieldset legend 2</legend>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-select-1">Select</label>
+                        <select class="form__control form__control--medium" id="form-select-1">
+                          <option>Option 1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-input-1">Small</label>
+                        <input type="text" class="form__control form__control--small" id="form-input-1" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-input-2">Medium</label>
+                        <input type="text" class="form__control form__control--medium" id="form-input-2" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-input-3">Large</label>
+                        <input type="text" class="form__control form__control--large" id="form-input-3" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-input-4">XLarge</label>
+                        <input type="text" class="form__control form__control--xlarge" id="form-input-4" placeholder="This is a placeholder" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label">Checkbox options (custom)</label>
+                        <label class="form__option form__option--custom-checkbox">
+                          <input type="checkbox" name="form-checkbox" id="form-checkbox-1" value="Checkbox 1" />
+                          <span class="form__option__text">Checkbox 1</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                        <label class="form__option form__option--custom-checkbox">
+                          <input type="checkbox" name="form-checkbox" value="form-checkbox-2" />
+                          <span class="form__option__text">Checkbox 2</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                        <label class="form__option form__option--custom-checkbox">
+                          <input type="checkbox" name="form-checkbox" value="form-checkbox-3" />
+                          <span class="form__option__text">Checkbox 3</span>
+                          <span class="form__option__ui"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+
+                    <fieldset class="form__fieldset">
+                      <legend class="form__legend">Fieldset legend 3</legend>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-file-1">File input</label>
+                        <input type="file" class="form__control" id="form-file-1" />
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-textarea-1">Textarea</label>
+                        <textarea class="form__control" id="form-textarea-1" rows="4" placeholder="This is a placeholder"></textarea>
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-input-5">Input group</label>
+                        <div class="form__input-group">
+                          <input type="text" class="form__control form__control--medium" id="form-input-5" placeholder="This is a placeholder">
+                          <span class="form__input-group-button"><button type="submit" class="button button--achromic button--text-hidden button--medium button--example-icon"><span>Button</span></button></span>
+                        </div>
+                      </div>
+
+                      <div class="form__group">
+                        <label class="form__label" for="form-input-6">Input group</label>
+                        <div class="form__input-group">
+                          <span class="form__input-group-button"><button type="submit" class="button button--achromic button--text-hidden button--medium button--example-icon"><span>Button</span></button></span>
+                          <input type="text" class="form__control form__control--medium" id="form-input-6" placeholder="Search location">
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+
+                </div>
+                <!--/ page main content -->
+
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer" role="contentinfo">
+        <div class="inner">
+          <p>Made with love by <a href="https://developmentseed.org" title="Visit Development Seed website">Development Seed</a> and <a href="http://hot.openstreetmap.org/" title="Visit the Humanitarian OpenStreetMap Team website">HOT</a>.</p>
+        </div>
+      </footer>
     </div>
 
     <!-- build:js /assets/scripts/vendor.js -->

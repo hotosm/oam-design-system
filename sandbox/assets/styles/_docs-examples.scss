@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Docs examples
+   ========================================================================== */
+
+.docs-example {
+  @extend .clearfix;
+  margin: 0 0 ($global-spacing * 1.5) 0;
+  padding: ($global-spacing * 1.5);
+  box-shadow: 0 4px 0 0 $base-semi-alpha-color, 0 0 0 1px $base-alpha-color;
+  border-radius: $base-border-radius;
+  background: #fff;
+  > *:first-child:not(.docs-example__inset) {
+    margin-top: 0;
+  }
+  > *:last-child:not(.docs-example__inset) {
+    margin-bottom: 0;
+  }
+  &--clipped {
+    overflow: hidden;
+  }
+  &--dark {
+    @extend .antialiased;
+    background: $base-color;
+    color: #fff;
+  }
+
+  img {
+    @extend .image-fluid;
+  }
+}
+
+.docs-example__inset {
+  @extend .clearfix;
+  clear: both;
+  background: rgba($base-color, 0.04);
+  padding: ($global-spacing * 1.5);
+  pre {
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+  &:first-child {
+    margin: (- $global-spacing * 1.5) (- $global-spacing * 1.5) ($global-spacing * 1.5) (- $global-spacing * 1.5);
+    box-shadow: inset 0 -1px 0 0 $base-semi-alpha-color;
+  }
+  &:last-child {
+    margin: ($global-spacing * 1.5) (- $global-spacing * 1.5) (- $global-spacing * 1.5) (- $global-spacing * 1.5);
+    box-shadow: inset 0 1px 0 0 $base-semi-alpha-color;
+  }
+  &:only-child {
+    box-shadow: none;
+    margin: (- $global-spacing * 1.5);
+  }
+  .highlight pre,
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .docs-example--dark & {
+    background: rgba(#fff, 0.04);
+  }
+}
+
+/* Brand assets */
+
+.docs-example--logo-v,
+.docs-example--logo-s {
+  text-align: center;
+  > img {
+    width: 16rem;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+.docs-example--logo-h {
+  text-align: center;
+  > img {
+    width: auto;
+    height: 4rem;
+    max-width: 100%;
+  }
+}
+
+/* Misc */
+
+.button--example-icon:before {
+  @extend %oam-ds-icon-pencil;
+}
+
+.drop__menu-item--example-icon:before {
+  @extend %oam-ds-icon-download;
+}
+
+.docs-example {
+  > .button,
+  > .button-group,
+  [data-hook="react:drops"] .button {
+    margin: 0 0.5rem 0.5rem 0;
+  }
+  > .drop {
+    float: left;
+    margin: 0 1.5rem 1.5rem 0;
+    .drop__toggle {
+      float: left;
+    }
+    .drop__content {
+      position: relative;
+      float: left;
+      clear: left;
+    }
+  }
+
+  .panel {
+    position: static;
+  }
+
+  .alert--popover {
+    position: relative;
+    bottom: initial;
+    right: initial;
+    margin-bottom: 1rem;
+  }
+}
