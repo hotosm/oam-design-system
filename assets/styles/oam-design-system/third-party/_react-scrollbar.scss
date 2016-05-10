@@ -1,0 +1,71 @@
+/* ==========================================================================
+   reactScrollbar
+   ========================================================================== */
+
+/**
+ * Custom styles for react-scrollbar:
+ * https://github.com/souhe/reactScrollbar
+ */
+
+.scrollarea-content {
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollarea {
+  position: relative;
+  overflow: hidden;
+
+  .scrollbar {
+    border-radius: $full-border-radius;
+    background: $base-color;
+    opacity: 0.16;
+    transition: opacity 0.24s linear 0s;
+  }
+
+  .scrollbar-container {
+    position: absolute;
+    background: none;
+    z-index: 9999;
+    cursor: pointer;
+    transition: all 0.24s linear 0s;
+
+    &.horizontal {
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      padding: ($global-spacing / 8) 0;
+
+      .scrollbar {
+        width: 1rem;
+        height: 0.5rem;
+        cursor: ew-resize;
+      }
+    }
+
+    &.vertical {
+      height: 100%;
+      padding: 0 ($global-spacing / 8);
+      right: 0;
+      top: 0;
+
+      .scrollbar {
+        width: 0.5rem;
+        height: 1rem;
+        cursor: ns-resize;
+      }
+    }
+
+    &:hover,
+    &.active {
+      background: rgba($base-color, 0.08);
+      .scrollbar {
+        opacity: 0.48;
+      }
+    }
+  }
+
+  &:hover .scrollbar {
+    opacity: 0.32;
+  }
+}
