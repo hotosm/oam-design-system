@@ -62,7 +62,6 @@ textarea.form__control {
 
 
 /* Form control size modifiers
- * Needs to be revised.
    ========================================================================== */
 
 /* Small (24px) */
@@ -117,8 +116,7 @@ textarea.form__control {
 }
 
 
-/* Input group
- * Needs to be revised.
+/* Input groups
    ========================================================================== */
 
 .form__input-group {
@@ -134,13 +132,13 @@ textarea.form__control {
   margin-right: -1px;
 }
 
-.form__input-group-button:last-child > .button, .form__input-group-button:last-child > .button-group {
+.form__input-group-button:last-child > .button,
+.form__input-group-button:last-child > .button-group {
   z-index: 2;
   margin-left: -1px;
 }
 
 .form__input-group .form__control:first-child,
-.form__input-group-addon:first-child,
 .form__input-group-button:first-child > .button,
 .form__input-group-button:first-child > .button-group > .button,
 .form__input-group-button:first-child > .dropdown-toggle,
@@ -150,7 +148,6 @@ textarea.form__control {
 }
 
 .form__input-group .form__control:last-child,
-.form__input-group-addon:last-child,
 .form__input-group-button:first-child > .button-group:not(:first-child) > .button,
 .form__input-group-button:first-child > .button:not(:first-child),
 .form__input-group-button:last-child > .button,
@@ -183,13 +180,20 @@ textarea.form__control {
 }
 
 
-/* Form Fieldsets
+/* Form fieldsets
    ========================================================================== */
 
 .form__fieldset {
-  padding: 0;
-  margin: 0 0 $global-spacing 0;
+  padding: 0 0 ($global-spacing * 1.5) 0;
+  margin: 0 0 ($global-spacing * 1.5) 0;
   border: 0;
+  position: relative;
+  box-shadow: inset 0 -1px 0 0 $base-alpha-color;
+
+  &:last-child {
+    padding-bottom: 0;
+    box-shadow: none;
+  }
 
   > *:last-child {
     margin-bottom: 0;
@@ -229,7 +233,7 @@ label[for] {
 
 .form__option {
   position: relative;
-  display: block;
+  display: inline-block;
   margin-bottom: $global-spacing;
   font-size: 1rem;
   line-height: 1.5;
@@ -240,6 +244,10 @@ label[for] {
     top: $global-spacing / 4;
     left: 0;
   }
+}
+
+.form__option:not(.form__option--inline) {
+  display: table; // Hack-ish. Please fix me.
 }
 
 .form__option + .form__option {
@@ -256,7 +264,9 @@ label[for] {
   margin-left: $global-spacing;
 }
 
-/* Custom options */
+
+/* Form custom options modifiers (radios and checkboxes)
+   ========================================================================== */
 
 .form__option--custom-radio,
 .form__option--custom-checkbox {
@@ -323,5 +333,19 @@ label[for] {
       @extend %oam-ds-icon-sm-tick;
       color: rgba($base-color, 0.80);
     }
+  }
+}
+
+/* Form misc
+   ========================================================================== */
+
+.form__help {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba($base-font-color, 0.64);
+  margin-top: $global-spacing / 2;
+
+  > *:last-child {
+    margin-bottom: 0;
   }
 }
