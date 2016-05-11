@@ -1,12 +1,11 @@
 /* ==========================================================================
-   Layout: Sandbox
+   Page
    ========================================================================== */
 
-
-/* Canvas
+/* Inner
    ========================================================================== */
 
-.site-canvas {
+.page__inner {
   background: tint($base-color, 96%);
 }
 
@@ -14,16 +13,18 @@
 /* Header
    ========================================================================== */
 
-.site-header {
+.page__header {
   position: relative;
   z-index: 10;
   background: #fff;
   color: $base-font-color;
   padding: $global-spacing 0;
   box-shadow: inset 0 -1px 0 0 $base-alpha-color;
+
   > .inner {
     @extend .row, .row--centered;
   }
+  
   @include media(medium-up) {
     padding: ($global-spacing * 2) 0;
   }
@@ -31,45 +32,133 @@
 
 /* Headline */
 
-.site-headline {
+.page__headline {
   float: left;
   margin: -0.5rem 0;
 }
 
-.site-title {
+.page__title {
+  font-size: inherit;
+  line-height: 1;
   margin: 0;
-  white-space: nowrap;
-  font-size: 1rem;
-  line-height: 2;
-  * {
-    vertical-align: top;
-    display: inline-block;
-    word-spacing: -0.26rem;
-  }
   a {
-    &, &:visited {
-      color: inherit;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+/* Navigation */
+
+.page__prime-nav {
+  font-weight: $base-font-bold;
+
+  @include media(medium-up) {
+    float: right;
+    margin: -0.5rem 0;
+  }
+
+  .toggle-menu {
+    position: absolute;
+    top: 0.5rem;
+    right: $global-spacing;
+    margin: 0;
+
+    a {
+      @extend .button, .button--base-unbounded, .button--medium, .button--text-hidden;
+      vertical-align: top;
+
+      &:before {
+        @extend %oam-ds-icon-hamburger-menu;
+      }
+
+      @include media(medium-up) {
+        &:before {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    @include media(small-up) {
+      right: $global-spacing * 2;
+    }
+
+    @include media(medium-up) {
+      top: 1.5rem;
+    }
+
+    @include media(large-up) {
+      display: none;
     }
   }
-  &__logo {
+}
+
+.menu-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  clear: both;
+  background: #fff;
+  padding: $global-spacing;
+  box-shadow: 0 4px 12px 0 $base-alpha-color, 0 1px 0 0 $base-alpha-color;
+
+  /* Animation */
+
+  margin-top: - $global-spacing;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.16s ease 0s, margin 0.16s ease 0s, visibility 0.16s linear 0s;
+
+  &.menu-wrapper--open {
+    margin-top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include media(small-up) {
+    padding: $global-spacing ($global-spacing * 2);
+  }
+
+  @include media(large-up) {
+    position: initial;
+    float: left;
     width: auto;
-    height: 2rem;
+    margin-top: 0;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
   }
-  &__text {
-    @extend .visually-hidden;
+}
+
+.global-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include media(medium-up) {
+    float: left;
+    > li {
+      float: left;
+      margin: 0 ($global-spacing / 2) 0 0;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
-  &__label {
-    @extend .antialiased;
-    margin: 0.45rem 0 0 0.5rem;
-    background: rgba($base-color, 0.64);
-    color: #fff;
-    border-radius: $base-border-radius;
-    padding: 0 0.25rem;
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    text-transform: uppercase;
-    font-weight: $base-font-bold;
-    word-spacing: normal;
+}
+
+.global-menu-item {
+  display: block;
+  line-height: 2rem;
+  font-size: 1rem;
+  padding: 0 ($global-spacing / 2);
+  border-radius: $base-border-radius;
+  &, &:visited {
+    color: $base-font-color;
+  }
+  &--active {
+    background: rgba($base-color, 0.08);
   }
 }
 
@@ -77,7 +166,7 @@
 /* Body
    ========================================================================== */
 
-.site-body {
+.page__body {
   @extend .clearfix;
 }
 
@@ -85,7 +174,7 @@
 /* Footer
    ========================================================================== */
 
-.site-footer {
+.page__footer {
   box-shadow: inset 0 1px 0 0 $base-alpha-color;
   background: #fff;
   padding: 2rem 0;
@@ -103,16 +192,16 @@
 
 
 /* ==========================================================================
-   Pages
+   Section
    ========================================================================== */
 
-.page {
+.section {
   &__header {
     position: relative;
-    text-align: center;
     color: inherit;
+    text-align: center;
     padding: {
-      top: ($global-spacing * 2) + $site-header-y;
+      top: ($global-spacing * 2) + $page-header-y;
       right: 0;
       bottom: ($global-spacing * 2);
       left: 0;
@@ -122,7 +211,7 @@
     background-position: center center;
     background-size: cover;
     transform: translateZ(0);
-    margin-top: - $site-header-y;
+    margin-top: - $page-header-y;
     margin-bottom: ($global-spacing * 2);
 
     > * {
@@ -159,7 +248,7 @@
 
     @include media(medium-up) {
       padding: {
-        top: ($global-spacing * 3) + $site-header-y;
+        top: ($global-spacing * 3) + $page-header-y;
         bottom: ($global-spacing * 3);
       }
       margin-bottom: ($global-spacing * 3);
@@ -167,7 +256,7 @@
 
     @include media(large-up) {
       padding: {
-        top: ($global-spacing * 4) + $site-header-y;
+        top: ($global-spacing * 4) + $page-header-y;
         bottom: ($global-spacing * 4);
       }
       margin-bottom: ($global-spacing * 4);
@@ -232,10 +321,10 @@
 }
 
 
-/* Page header modifiers
+/* Layout header modifiers
    ========================================================================== */
 
-.page__header--dark {
+.section__header--dark {
   @extend .antialiased;
   background-color: $base-color;
   color: #fff;
@@ -244,52 +333,54 @@
     background: rgba(#fff, 0.12);
   }
 
-  &.page__header--hero {
+  &.section__header--hero {
     &::before {
       background: linear-gradient(rgba($base-color, 0.64), rgba($base-color, 0.80), rgba($base-color, 0.92));
     }
   }
 
-  .page__subtitle {
+  .section__subtitle {
     color: rgba(#fff, 0.48);
   }
   
-  .page__introduction {
+  .section__introduction {
     color: rgba(#fff, 0.64);
   }
 }
 
 
-/* Old Pages
+/* Sandbox page section
    ========================================================================== */
 
-.page--docs {
+.page--sandbox .section {
 
-  .page__header {
+  .section__header {
     text-align: left;
   }
 
-  .page__headline {
+  .section__headline {
     @include col(12/12);
+    
     @include media(medium-up) {
       @include col(10/12);
     }
+
     @include media(large-up) {
       @include col(8/12);
     }
   }
 
-  .page__main-content {
-    @include col(12/12);
-    @extend .prose;
-    
+  .section__main-content {
     @include media(medium-up) {
-      @include col(10/12, $offset: 1/12);
+      @include col(9/12);
+      @include shift(1.5/12);
     }
 
     @include media(large-up) {
-      @include col(8/12, $offset: 2/12);
+      @include col(8/12);
+      @include shift(2/12);
     }
   }
 
 }
+
