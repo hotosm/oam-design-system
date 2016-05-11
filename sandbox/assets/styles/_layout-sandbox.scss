@@ -1,4 +1,108 @@
 /* ==========================================================================
+   Layout: Sandbox
+   ========================================================================== */
+
+
+/* Canvas
+   ========================================================================== */
+
+.site-canvas {
+  background: tint($base-color, 96%);
+}
+
+
+/* Header
+   ========================================================================== */
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  background: #fff;
+  color: $base-font-color;
+  padding: $global-spacing 0;
+  box-shadow: inset 0 -1px 0 0 $base-alpha-color;
+  > .inner {
+    @extend .row, .row--centered;
+  }
+  @include media(medium-up) {
+    padding: ($global-spacing * 2) 0;
+  }
+}
+
+/* Headline */
+
+.site-headline {
+  float: left;
+  margin: -0.5rem 0;
+}
+
+.site-title {
+  margin: 0;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 2;
+  * {
+    vertical-align: top;
+    display: inline-block;
+    word-spacing: -0.26rem;
+  }
+  a {
+    &, &:visited {
+      color: inherit;
+    }
+  }
+  &__logo {
+    width: auto;
+    height: 2rem;
+  }
+  &__text {
+    @extend .visually-hidden;
+  }
+  &__label {
+    @extend .antialiased;
+    margin: 0.45rem 0 0 0.5rem;
+    background: rgba($base-color, 0.64);
+    color: #fff;
+    border-radius: $base-border-radius;
+    padding: 0 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    font-weight: $base-font-bold;
+    word-spacing: normal;
+  }
+}
+
+
+/* Body
+   ========================================================================== */
+
+.site-body {
+  @extend .clearfix;
+}
+
+
+/* Footer
+   ========================================================================== */
+
+.site-footer {
+  box-shadow: inset 0 1px 0 0 $base-alpha-color;
+  background: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba($base-font-color, 0.64);
+  > .inner {
+    @extend .row, .row--centered;
+  }
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+/* ==========================================================================
    Pages
    ========================================================================== */
 
@@ -153,4 +257,39 @@
   .page__introduction {
     color: rgba(#fff, 0.64);
   }
+}
+
+
+/* Old Pages
+   ========================================================================== */
+
+.page--docs {
+
+  .page__header {
+    text-align: left;
+  }
+
+  .page__headline {
+    @include col(12/12);
+    @include media(medium-up) {
+      @include col(10/12);
+    }
+    @include media(large-up) {
+      @include col(8/12);
+    }
+  }
+
+  .page__main-content {
+    @include col(12/12);
+    @extend .prose;
+    
+    @include media(medium-up) {
+      @include col(10/12, $offset: 1/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12, $offset: 2/12);
+    }
+  }
+
 }
