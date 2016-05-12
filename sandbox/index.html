@@ -45,42 +45,44 @@
     <!-- endbuild -->
     
   </head>
-  <body>
-    <div class="site-canvas">
-      <header class="site-header" role="banner">
+  <body class="page page--sandbox">
+    <div class="page__inner">
+      <header class="page__header" role="banner">
         <div class="inner">
-          <div class="site-headline">
-            <h1 class="site-title">
+          <div class="page__headline">
+            <h1 class="page__title">
               <a href="/" title="Visit homepage">
-                <img src="{{ site.baseurl }}/assets/graphics/layout/oam-logo-h-pos.svg" width="832" height="160" alt="OpenAerialMap logo" class="site-title__logo" />
-                <span class="site-title__text">OpenAerialMap</span>
-                <small class="site-title__label">Design System</small>
+                <span class="mast-logo mast-logo--h">
+                  <img src="{{ site.baseurl }}/assets/graphics/layout/oam-logo-h-pos.svg" width="832" height="160" alt="OpenAerialMap logo" class="mast-logo__image" />
+                  <strong class="mast-logo__text">OpenAerialMap</strong>
+                  <small class="mast-logo__label">Design System</small>
+                </span>
               </a>
-            </h1>        
+            </h1>       
           </div>
         </div>
       </header>
-      <main class="site-body" role="main">
+      <main class="page__body" role="main">
         <div class="inner">
-          <section class="page page--docs">
-            <header class="page__header">
+          <section class="section section--simple">
+            <header class="section__header">
               <div class="inner">
-                <div class="page__headline">
-                  <h1 class="page__title">Sandbox</h1>
-                  <div class="page__introduction">
+                <div class="section__headline">
+                  <h1 class="section__title">Sandbox</h1>
+                  <div class="section__introduction">
                     <p>Testing OpenAerialMap Design System.</p>
                   </div>
                 </div>
               </div>         
             </header>
-            <div class="page__body">
+            <div class="section__body">
               <div class="inner">
 
-                <!-- page main content -->
-                <div class="page__main-content">
+                <!-- section main content -->
+                <div class="section__main-content">
                   
                   <h2>Forms</h2>
-                  <form id="upload-form" class="form form--horizontal">
+                  <form class="form">
                     <fieldset class="form__fieldset">
                       <legend class="form__legend">Fieldset legend 1</legend>
 
@@ -199,7 +201,7 @@
                   </form>
 
                 </div>
-                <!--/ page main content -->
+                <!--/ section main content -->
 
               </div>
             </div>
@@ -207,7 +209,7 @@
         </div>
       </main>
 
-      <footer class="site-footer" role="contentinfo">
+      <footer class="page__footer" role="contentinfo">
         <div class="inner">
           <p>Made with love by <a href="https://developmentseed.org" title="Visit Development Seed website">Development Seed</a> and <a href="http://hot.openstreetmap.org/" title="Visit the Humanitarian OpenStreetMap Team website">HOT</a>.</p>
         </div>
