@@ -8,6 +8,7 @@ var Modal = React.createClass({
   propTypes: {
     id: React.PropTypes.string.isRequired,
     revealed: React.PropTypes.bool,
+    className: React.PropTypes.string,
     onOverlayClick: React.PropTypes.func,
     onCloseClick: React.PropTypes.func,
 
@@ -45,43 +46,65 @@ var Modal = React.createClass({
     }
   },
 
-  closeModal: function () {
-    this.setState({ revealed: false });
+  // closeModal: function () {
+  //   this.setState({ revealed: false });
+  // },
+
+  // openModal: function () {
+  //   this.setState({ revealed: true });
+  // },
+
+  // getInitialState: function () {
+  //   return {
+  //     revealed: this.props.revealed
+  //   };
+  // },
+
+  toggleBodyClass: function (revealed) {
+    let bd = document.getElementsByTagName('body')[0];
+    if (revealed) {
+      bd.classList.add('unscrollable-y');
+    } else {
+      bd.classList.remove('unscrollable-y');
+    }
   },
 
-  openModal: function () {
-    this.setState({ revealed: true });
+  componentDidUpdate: function () {
+    this.toggleBodyClass(this.props.revealed);
   },
 
-  getInitialState: function () {
-    return {
-      revealed: this.props.revealed
-    };
+  componentDidMount: function () {
+    this.toggleBodyClass(this.props.revealed);
+  },
+
+  componentWillUnount: function () {
+    this.toggleBodyClass(false);
   },
 
   getDefaultProps: function () {
     return {
-      header: null,
-      body: null,
-      footer: null,
-
       revealed: false,
 
       onOverlayClick: function (e) {
-        // Prevent children from triggering this.
-        if (e.target === e.currentTarget) {
-          this.closeModal();
+        if (process.env.NODE_ENV !== 'production') {
+          console.warn('Modal', 'onOverlayClick handler not implemented');
         }
       },
 
       onCloseClick: function (e) {
-        this.closeModal();
+        if (process.env.NODE_ENV !== 'production') {
+          console.warn('Modal', 'onCloseClick handler not implemented');
+        }
       }
     };
   },
 
   onOverlayClick: function (e) {
-    this.props.onOverlayClick.call(this, e);
+    // Prevent children from triggering this.
+    if (e.target === e.currentTarget) {
+      // Overlay click is disabled.
+      // this.props.onOverlayClick.call(this, e);
+    }
   },
 
   onCloseClick: function (e) {
@@ -101,6 +124,11 @@ var Modal = React.createClass({
   },
 
   render: function () {
+    var klasses = ['modal'];
+    if (this.props.className) {
+      klasses.push(this.props.className);
+    }
+
     return (
       <ReactCSSTransitionGroup
         component='div'
@@ -108,14 +136,14 @@ var Modal = React.createClass({
         transitionEnterTimeout={300}
         transitionLeaveTimeout={300} >
 
-        {this.state.revealed ? (
-          <section className='modal' key={'modal-' + this.props.id} onClick={this.onOverlayClick} id={'modal-' + this.props.id}>
+        {this.props.revealed ? (
+          <section className={klasses.join(' ')} key={'modal-' + this.props.id} onClick={this.onOverlayClick} id={'modal-' + this.props.id}>
             <div className='modal__inner'>
               {this.getChild('ModalHeader')}
               {this.getChild('ModalBody')}
               {this.getChild('ModalFooter')}
             </div>
-            <button className='modal__button-dismiss' title="Close" onClick={this.onCloseClick}><span>Dismiss</span></button>
+            <button className='modal__button-dismiss' title='Close' onClick={this.onCloseClick}><span>Dismiss</span></button>
           </section>
         ) : null}
 
