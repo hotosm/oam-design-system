@@ -43,7 +43,7 @@
 @import "oam-design-system/code";
 @import "oam-design-system/media";
 @import "oam-design-system/oam-ds-icons";
-@import "oam-design-system/skins";
+@import "oam-design-system/utilities";
 
 
 /* Components
@@ -54,6 +54,7 @@
 @import "oam-design-system/drops";
 @import "oam-design-system/panels";
 @import "oam-design-system/alerts";
+@import "oam-design-system/modals";
 @import "oam-design-system/layout";
 @import "oam-design-system/constructs";
 
@@ -62,9 +63,3 @@
    ========================================================================== */
 
 @import "oam-design-system/third-party/react-scrollbar";
-
-
-/* Utilities
-   ========================================================================== */
-
-@import "oam-design-system/utilities";
