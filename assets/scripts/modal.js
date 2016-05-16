@@ -110,14 +110,12 @@ var Modal = React.createClass({
 
         {this.state.revealed ? (
           <section className='modal' key={'modal-' + this.props.id} onClick={this.onOverlayClick} id={'modal-' + this.props.id}>
-            <div className='modal-inner'>
-              <span className='dismiss-modal'>
-                <a className='close' title='Close' onClick={this.onCloseClick}><span>Close</span></a>
-              </span>
+            <div className='modal__inner'>
               {this.getChild('ModalHeader')}
               {this.getChild('ModalBody')}
               {this.getChild('ModalFooter')}
             </div>
+            <button className='modal__button-dismiss' title="Close" onClick={this.onCloseClick}><span>Dismiss</span></button>
           </section>
         ) : null}
 
@@ -135,7 +133,7 @@ var ModalHeader = React.createClass({
 
   render: function () {
     return (
-      <header className='modal-header'>
+      <header className='modal__header'>
         {this.props.children}
       </header>
     );
@@ -151,7 +149,7 @@ var ModalBody = React.createClass({
 
   render: function () {
     return (
-      <div className='modal-body'>
+      <div className='modal__body'>
         {this.props.children}
       </div>
     );
@@ -167,7 +165,7 @@ var ModalFooter = React.createClass({
 
   render: function () {
     return (
-      <footer className='modal-footer'>
+      <footer className='modal__footer'>
         {this.props.children}
       </footer>
     );

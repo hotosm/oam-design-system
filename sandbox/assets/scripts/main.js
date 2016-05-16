@@ -16,14 +16,21 @@ var renderModal = function () {
       revealed >
 
       <ModalHeader>
-        <h3>Test Modal</h3>
+        <div className='modal__headline'>
+          <p className='modal__subtitle'>Modal subtitle</p>
+          <h1 className='modal__title'>This is the modal title</h1>
+        </div>
       </ModalHeader>
       <ModalBody>
-        <p>This modal is currently under development.</p>
-        <p>It will be ready some time in the next century... maybe.</p>
+        <div className='prose'>
+          <p>This modal is currently under development.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur ac tellus at rutrum. Duis vestibulum tempor commodo. Phasellus efficitur fermentum quam nec semper. Nulla convallis dui quis ante dapibus, at mollis mi fringilla. Ut sit amet pellentesque nibh.</p>
+          <p>Etiam ultrices est a auctor sodales. Ut sit amet feugiat est, id sodales leo. Vestibulum id lorem lectus. Aliquam dictum egestas elementum. Proin blandit auctor justo. Praesent quis odio a justo tempus dictum. Praesent sed nisi dui. Vestibulum velit dui, accumsan quis dui a, iaculis dictum quam.</p>
+        </div>
       </ModalBody>
       <ModalFooter>
-        oam-desing-system
+        <button className='button button--achromic' type='button'><span>Cancel</span></button>
+        <button className='button button--base' type='submit'><span>Save</span></button>
       </ModalFooter>
     </Modal>
   );
