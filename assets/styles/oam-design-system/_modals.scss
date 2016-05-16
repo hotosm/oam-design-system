@@ -157,11 +157,6 @@
     line-height: 1.25;
     margin: 0;
     width: 100%;
-
-    @include media(medium-up) {
-      position: absolute;
-      transform: translate(0, -100%);
-    }
   }
 
   &__body {
