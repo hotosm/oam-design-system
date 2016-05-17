@@ -2,6 +2,38 @@
    Typography
    ========================================================================== */
 
+
+/* Prose
+   ========================================================================== */
+
+.prose {
+  font-size: $base-font-size;                           // 16px
+  line-height: $base-line-height;                       // 24px
+
+  > * {
+    margin-bottom: $base-font-size * $base-line-height; // same as line-height
+  }
+}
+
+.prose--responsive {
+  $prose-resp-font-size: 1.25rem;                       // 20px
+  $prose-resp-line-height: 1.6;                         // 32px
+
+  @include media(medium-up) {
+    font-size: $prose-resp-font-size;
+    line-height: $prose-resp-line-height;
+  
+    > * {
+      margin-bottom: $prose-resp-font-size * $prose-resp-line-height; // same as line-height
+    }
+  }
+}
+
+
+/* Common elements
+   ========================================================================== */
+
+
 p, ul, ol, dl, pre, blockquote {
   margin: 0 0 $global-spacing 0;
 }
@@ -16,6 +48,16 @@ p, ul, ol, dl, pre, blockquote {
   opacity: 0.64;
 }
 
+/* Prose specific */
+
+.prose--responsive {
+  > .lead {
+    @include media(medium-up) {
+      font-size: 1.5rem;
+      line-height: 1.6666667;
+    }
+  }
+}
 
 /* Lists
    ========================================================================== */
@@ -31,7 +73,6 @@ ul {
 ol {
   list-style-type: decimal;
 }
-
 
 dt {
   @extend .heading-alt;
@@ -61,6 +102,19 @@ dd {
   }
   dd + dd {
     margin-left: 32%;
+  }
+}
+
+/* Prose specific */
+
+.prose--responsive {
+  > dl dt {
+    @include media(medium-up) {
+      padding-top: $global-spacing / 4;
+      padding-bottom: $global-spacing / 4;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
   }
 }
 
@@ -94,6 +148,24 @@ hr, .hr {
   width: 80%;
   max-width: 16rem;
   margin: ($global-spacing * 2) auto;
+}
+
+/* Prose specific */
+
+.prose {
+  > hr,
+  >.hr {
+    margin: ($global-spacing * 3) auto;
+  }
+}
+
+.prose--responsive {
+  > hr,
+  > .hr {
+    @include media(medium-up) {
+      margin: ($global-spacing * 4) auto;
+    }
+  }
 }
 
 
@@ -186,6 +258,35 @@ h4, h5, h6 {
   > h4:not(:first-child),
   > h5:not(:first-child),
   > h6:not(:first-child) {
-    margin-top: $global-spacing * 2;
+    margin-top: $global-spacing * 2.5;
+  }
+
+  > h1 + h2:not(:first-child),
+  > h2 + h3:not(:first-child),
+  > h3 + h4:not(:first-child),
+  > h4 + h5:not(:first-child),
+  > h5 + h6:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+.prose--responsive {
+  > h1 { @include heading(1.75rem, xlarge-up); }            // 28, 32, 36, 40
+  > h2 { @include heading(1.5rem, xlarge-up); }             // 24, 28, 32, 36
+  > h3 { @include heading(1.25rem, xlarge-up); }            // 20, 24, 28, 32
+  > h4,
+  > h5,
+  > h6 { @include heading(1rem, xlarge-up); }               // 16, 20, 24, 28
+  
+
+  @include media(medium-up) {
+    > h1:not(:first-child),
+    > h2:not(:first-child),
+    > h3:not(:first-child),
+    > h4:not(:first-child),
+    > h5:not(:first-child),
+    > h6:not(:first-child) {
+      margin-top: $global-spacing * 4;
+    }
   }
 }
