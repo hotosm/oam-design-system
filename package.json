@@ -1,6 +1,6 @@
 {
   "name": "oam-design-system",
-  "version": "0.1.7-alpha",
+  "version": "0.2.0-beta",
   "description": "OpenAerialMap Design System",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
     "name": "Development Seed",
     "url": "https://developmentseed.org"
   },
-  "license": "",
+  "license": "BSD 3-Clause",
   "bugs": {
     "url": "https://github.com/hotosm/oam-design-system/issues"
   },
