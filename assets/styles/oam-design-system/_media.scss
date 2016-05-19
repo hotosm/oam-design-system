@@ -24,12 +24,13 @@ img {
 
 /* Prose specific */
 
-.prose img {
+.prose > img,
+.prose > figure img {
   max-width: 100%;
   height: auto;
 }
 
-.prose figcaption {
+.prose > figure figcaption {
   color: rgba($base-color, 0.48);
   font-size: 0.875rem;
   line-height: 1.25rem;

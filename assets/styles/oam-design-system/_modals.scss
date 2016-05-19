@@ -52,33 +52,30 @@
 /* Modal size modifiers
    ========================================================================== */
 
-.modal {
+/* Small */
 
-  /* Small */
+.modal--small .modal__inner {
+  max-width: 32rem;
+}
 
-  &.modal--small .modal__inner {
-    max-width: 32rem;
-  }
+/* Medium
+   Default
+*/
 
-  /* Medium
-     Default
-  */
+.modal--medium .modal__inner {
+  max-width: 48rem;
+}
 
-  &.modal--medium .modal__inner {
-    max-width: 48rem;
-  }
+/* Large */
 
-  /* Large */
+.modal--large .modal__inner {
+  max-width: 64rem;
+}
 
-  &.modal--large .modal__inner {
-    max-width: 64rem;
-  }
+/* XLarge */
 
-  /* XLarge */
-
-  &.modal--xlarge .modal__inner {
-    max-width: 80rem;
-  }
+.modal--xlarge .modal__inner {
+  max-width: 80rem;
 }
 
 

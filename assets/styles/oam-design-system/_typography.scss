@@ -82,6 +82,10 @@ dt {
 
 dd {
   margin: 0 0 ($global-spacing / 2) 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .dl-horizontal {
