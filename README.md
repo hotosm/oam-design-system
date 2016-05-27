@@ -100,3 +100,6 @@ gulp.task('images', function () {
 **USAGE**  
 Just include the images using the path `assets/graphics/[graphic-type]/[graphic-name]`.  
 All available images can be found [here](assets/graphics/).
+
+## License
+Oam Design System is licensed under **BSD 3-Clause License**, see the [LICENSE](LICENSE) file for more details.
