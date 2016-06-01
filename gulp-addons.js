@@ -16,10 +16,11 @@ module.exports.graphicsMiddleware = function (fs) {
       if (pieces[1].match(/\.svgz?$/)) {
         res.setHeader('Content-Type', 'image/svg+xml');
       }
-      res.end(fs.readFileSync(path.join(__dirname, './assets/graphics', pieces[1])));
+      // Body gets modified. End response.
+      return res.end(fs.readFileSync(path.join(__dirname, './assets/graphics', pieces[1])));
     } catch (e) {
       // Nothing to do there.
+      return next();
     }
-    return next();
   };
 };

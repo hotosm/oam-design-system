@@ -99,6 +99,10 @@
   transition: none;
 }
 
+.tether-element {
+  z-index: 9999;
+}
+
 .tether-element-attached-top,
 .tether-element-attached-bottom {
   .drop__content {
