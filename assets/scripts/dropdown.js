@@ -9,11 +9,12 @@ const Dropdown = React.createClass({
   propTypes: {
     triggerElement: React.PropTypes.oneOf(['a', 'button']),
     triggerClassName: React.PropTypes.string,
+    triggerActiveClassName: React.PropTypes.string,
     triggerTitle: React.PropTypes.string,
     triggerText: React.PropTypes.string.isRequired,
 
     direction: React.PropTypes.oneOf(['up', 'down']),
-    aligment: React.PropTypes.oneOf(['left', 'center', 'right']),
+    alignment: React.PropTypes.oneOf(['left', 'center', 'right']),
 
     className: React.PropTypes.string,
     children: React.PropTypes.node
@@ -62,7 +63,7 @@ const Dropdown = React.createClass({
     return {
       triggerElement: 'button',
       direction: 'down',
-      aligment: 'center'
+      alignment: 'center'
     };
   },
 
@@ -116,8 +117,12 @@ const Dropdown = React.createClass({
     var tetherAttachment = this.props.direction === 'down' ? 'top' : 'bottom';
     var tetherTargetAttachment = this.props.direction === 'down' ? 'bottom' : 'top';
 
-    tetherAttachment += ' ' + this.props.aligment;
-    tetherTargetAttachment += ' ' + this.props.aligment;
+    tetherAttachment += ' ' + this.props.alignment;
+    tetherTargetAttachment += ' ' + this.props.alignment;
+
+    if (this.state.open && this.props.triggerActiveClassName) {
+      triggerKlasses.push(this.props.triggerActiveClassName);
+    }
 
     return (
       <TetherComponent
