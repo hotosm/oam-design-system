@@ -103,7 +103,7 @@
       $bg-color: $color;
       $bg-color-hover: shade($color, 4%);
       $bg-color-active: shade($color, 8%);
-      $border-shadow-color: rgba($base-color, 0.12);
+      $border-shadow-color: rgba($base-color, 0.16);
       $inner-shadow-color: rgba($base-color, 0.12);
     }
     @else if $brightness == "dark" {
