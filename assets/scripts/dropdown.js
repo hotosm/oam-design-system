@@ -26,7 +26,7 @@ const Dropdown = React.createClass({
     if (theSelf.tagName === 'BODY' ||
         theSelf.tagName === 'HTML' ||
         e.target.getAttribute('data-hook') === 'dropdown:close') {
-      this.setState({open: false});
+      this.close();
       return;
     }
 
@@ -42,7 +42,7 @@ const Dropdown = React.createClass({
 
     if (theSelf && theSelf.getAttribute('data-hook') === 'dropdown:btn') {
       if (theSelf !== this.refs.trigger) {
-        this.setState({open: false});
+        this.close();
       }
       return;
     }
@@ -55,7 +55,7 @@ const Dropdown = React.createClass({
     } while (theSelf && theSelf.tagName !== 'BODY' && theSelf.tagName !== 'HTML');
 
     if (theSelf !== this.refs.dropdown) {
-      this.setState({open: false});
+      this.close();
     }
   },
 
@@ -87,7 +87,19 @@ const Dropdown = React.createClass({
 
   _toggleDropdown: function (e) {
     e.preventDefault();
+    this.toggle();
+  },
+
+  toggle: function () {
     this.setState({ open: !this.state.open });
+  },
+
+  open: function () {
+    this.setState({ open: true });
+  },
+
+  close: function () {
+    this.setState({ open: false });
   },
 
   render: function () {
