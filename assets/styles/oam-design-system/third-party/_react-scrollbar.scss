@@ -13,8 +13,13 @@
 }
 
 .scrollarea {
-  position: relative;
-  overflow: hidden;
+
+  .scrollarea-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
 
   .scrollbar {
     border-radius: $full-border-radius;
