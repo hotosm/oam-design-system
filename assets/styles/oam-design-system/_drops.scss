@@ -87,6 +87,13 @@
   }
 }
 
+[data-hook^="dropdown:close"],
+[data-hook=" dropdown:close"] {
+  * {
+    pointer-events: none;
+  }
+}
+
 /*
   React specific styles to handle animations.
   The tether library is being used and needs animations for all directions.

@@ -30,7 +30,7 @@ const Dropdown = React.createClass({
       return;
     }
 
-    // In the trigger element is an "a" the target is the "span", but it is a
+    // If the trigger element is an "a" the target is the "span", but it is a
     // button, the target is the "button" itself.
     // This code handles this case. No idea why this is happening.
     // TODO: Unveil whatever black magic is at work here.
