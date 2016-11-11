@@ -111,7 +111,9 @@
 }
 
 .tether-element-attached-top,
-.tether-element-attached-bottom {
+.tether-element-attached-bottom,
+.tether-element-attached-left,
+.tether-element-attached-right {
   .drop__content {
     transition: opacity .16s ease, transform .16s ease;
   }
@@ -135,6 +137,26 @@
 @mixin drop-bottom-end() {
   opacity: 1;
   transform: translate(0, -($global-spacing / 2));
+}
+
+@mixin drop-left-start() {
+  opacity: 0;
+  transform: translate(-100%, 0);
+}
+
+@mixin drop-left-end() {
+  opacity: 1;
+  transform: translate(1rem, 0);
+}
+
+@mixin drop-right-start() {
+  opacity: 0;
+  transform: translate(100%, 0);
+}
+
+@mixin drop-right-end() {
+  opacity: 1;
+  transform: translate(-1rem, 0);
 }
 
 .tether-element-attached-top {
@@ -177,6 +199,50 @@
 
     &.drop-trans-leave-active {
       @include drop-bottom-start();
+    }
+  }
+}
+
+.tether-element-attached-left {
+  .drop__content {
+    @include drop-left-end();
+  }
+
+  .drop-trans--hz-enter {
+    @include drop-left-start();
+
+    &.drop-trans--hz-enter-active {
+      @include drop-left-end();
+    }
+  }
+
+  .drop-trans--hz-leave {
+    @include drop-left-end();
+
+    &.drop-trans--hz-leave-active {
+      @include drop-left-start();
+    }
+  }
+}
+
+.tether-element-attached-right {
+  .drop__content {
+    @include drop-right-end();
+  }
+
+  .drop-trans--hz-enter {
+    @include drop-right-start();
+
+    &.drop-trans--hz-enter-active {
+      @include drop-right-end();
+    }
+  }
+
+  .drop-trans--hz-leave {
+    @include drop-right-end();
+
+    &.drop-trans--hz-leave-active {
+      @include drop-right-start();
     }
   }
 }
