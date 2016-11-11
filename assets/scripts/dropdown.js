@@ -13,8 +13,8 @@ const Dropdown = React.createClass({
     triggerTitle: React.PropTypes.string,
     triggerText: React.PropTypes.string.isRequired,
 
-    direction: React.PropTypes.oneOf(['up', 'down']),
-    alignment: React.PropTypes.oneOf(['left', 'center', 'right']),
+    direction: React.PropTypes.oneOf(['up', 'down', 'left', 'right']),
+    alignment: React.PropTypes.oneOf(['left', 'center', 'right', 'middle']),
 
     className: React.PropTypes.string,
     children: React.PropTypes.node
@@ -125,12 +125,31 @@ const Dropdown = React.createClass({
       triggerProps.title = this.props.triggerTitle;
     }
 
-    // Position.
-    var tetherAttachment = this.props.direction === 'down' ? 'top' : 'bottom';
-    var tetherTargetAttachment = this.props.direction === 'down' ? 'bottom' : 'top';
-
-    tetherAttachment += ' ' + this.props.alignment;
-    tetherTargetAttachment += ' ' + this.props.alignment;
+    let tetherAttachment;
+    let tetherTargetAttachment;
+    let transitionName;
+    switch (this.props.direction) {
+      case 'up':
+        tetherAttachment = `bottom ${this.props.alignment}`;
+        tetherTargetAttachment = `top ${this.props.alignment}`;
+        transitionName = 'drop-trans';
+        break;
+      case 'down':
+        tetherAttachment = `top ${this.props.alignment}`;
+        tetherTargetAttachment = `bottom ${this.props.alignment}`;
+        transitionName = 'drop-trans';
+        break;
+      case 'left':
+        tetherAttachment = `${this.props.alignment} left`;
+        tetherTargetAttachment = `${this.props.alignment} right`;
+        transitionName = 'drop-trans--hz';
+        break;
+      case 'right':
+        tetherAttachment = `${this.props.alignment} right`;
+        tetherTargetAttachment = `${this.props.alignment} left`;
+        transitionName = 'drop-trans--hz';
+        break;
+    }
 
     if (this.state.open && this.props.triggerActiveClassName) {
       triggerKlasses.push(this.props.triggerActiveClassName);
@@ -156,7 +175,7 @@ const Dropdown = React.createClass({
 
         <ReactCSSTransitionGroup
           component='div'
-          transitionName='drop-trans'
+          transitionName={transitionName}
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300} >
             { this.state.open
