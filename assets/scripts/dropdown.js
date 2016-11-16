@@ -104,7 +104,7 @@ const Dropdown = React.createClass({
 
   render: function () {
     // Base and additional classes for the trigger and the content.
-    var klasses = ['drop__content', 'drop__content--react'];
+    var klasses = ['drop__content', 'drop__content--react', `drop-trans--${this.props.direction}`];
     var triggerKlasses = ['drop__toggle'];
 
     if (this.props.className) {
@@ -127,27 +127,22 @@ const Dropdown = React.createClass({
 
     let tetherAttachment;
     let tetherTargetAttachment;
-    let transitionName;
     switch (this.props.direction) {
       case 'up':
         tetherAttachment = `bottom ${this.props.alignment}`;
         tetherTargetAttachment = `top ${this.props.alignment}`;
-        transitionName = 'drop-trans';
         break;
       case 'down':
         tetherAttachment = `top ${this.props.alignment}`;
         tetherTargetAttachment = `bottom ${this.props.alignment}`;
-        transitionName = 'drop-trans';
         break;
       case 'left':
         tetherAttachment = `${this.props.alignment} left`;
         tetherTargetAttachment = `${this.props.alignment} right`;
-        transitionName = 'drop-trans--hz';
         break;
       case 'right':
         tetherAttachment = `${this.props.alignment} right`;
         tetherTargetAttachment = `${this.props.alignment} left`;
-        transitionName = 'drop-trans--hz';
         break;
     }
 
@@ -175,7 +170,7 @@ const Dropdown = React.createClass({
 
         <ReactCSSTransitionGroup
           component='div'
-          transitionName={transitionName}
+          transitionName='drop-trans'
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300} >
             { this.state.open
