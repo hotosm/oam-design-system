@@ -1,7 +1,5 @@
 # OAM Design System
 
-**Work in progress.** Use at your own risk!  
-
 The following guide only explains how to include the `oam-design-system` in a new project. For usage information check the [documentation website](http://hotosm.github.io/oam-docs/).  
 
 For information on how to develop the `oam-design-system` checkout the [DEVELOPMENT.md](DEVELOPMENT.md)  
@@ -12,7 +10,7 @@ Style guide and UI components library that aims to standardize the look and feel
 
 Install it as an `npm` module: (module not available yet. use direct link)
 ```
-npm install https://github.com/hotosm/oam-design-system#v0.1.1-alpha
+npm install https://github.com/hotosm/oam-design-system#v1.0.0
 ```
 For the most recent version omit the tag.
 

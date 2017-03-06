@@ -9,11 +9,12 @@ const Dropdown = React.createClass({
   propTypes: {
     triggerElement: React.PropTypes.oneOf(['a', 'button']),
     triggerClassName: React.PropTypes.string,
+    triggerActiveClassName: React.PropTypes.string,
     triggerTitle: React.PropTypes.string,
     triggerText: React.PropTypes.string.isRequired,
 
-    direction: React.PropTypes.oneOf(['up', 'down']),
-    aligment: React.PropTypes.oneOf(['left', 'center', 'right']),
+    direction: React.PropTypes.oneOf(['up', 'down', 'left', 'right']),
+    alignment: React.PropTypes.oneOf(['left', 'center', 'right', 'middle']),
 
     className: React.PropTypes.string,
     children: React.PropTypes.node
@@ -25,11 +26,11 @@ const Dropdown = React.createClass({
     if (theSelf.tagName === 'BODY' ||
         theSelf.tagName === 'HTML' ||
         e.target.getAttribute('data-hook') === 'dropdown:close') {
-      this.setState({open: false});
+      this.close();
       return;
     }
 
-    // In the trigger element is an "a" the target is the "span", but it is a
+    // If the trigger element is an "a" the target is the "span", but it is a
     // button, the target is the "button" itself.
     // This code handles this case. No idea why this is happening.
     // TODO: Unveil whatever black magic is at work here.
@@ -41,7 +42,7 @@ const Dropdown = React.createClass({
 
     if (theSelf && theSelf.getAttribute('data-hook') === 'dropdown:btn') {
       if (theSelf !== this.refs.trigger) {
-        this.setState({open: false});
+        this.close();
       }
       return;
     }
@@ -54,7 +55,7 @@ const Dropdown = React.createClass({
     } while (theSelf && theSelf.tagName !== 'BODY' && theSelf.tagName !== 'HTML');
 
     if (theSelf !== this.refs.dropdown) {
-      this.setState({open: false});
+      this.close();
     }
   },
 
@@ -62,7 +63,7 @@ const Dropdown = React.createClass({
     return {
       triggerElement: 'button',
       direction: 'down',
-      aligment: 'center'
+      alignment: 'center'
     };
   },
 
@@ -86,12 +87,24 @@ const Dropdown = React.createClass({
 
   _toggleDropdown: function (e) {
     e.preventDefault();
+    this.toggle();
+  },
+
+  toggle: function () {
     this.setState({ open: !this.state.open });
+  },
+
+  open: function () {
+    this.setState({ open: true });
+  },
+
+  close: function () {
+    this.setState({ open: false });
   },
 
   render: function () {
     // Base and additional classes for the trigger and the content.
-    var klasses = ['drop__content', 'drop__content--react'];
+    var klasses = ['drop__content', 'drop__content--react', `drop-trans--${this.props.direction}`];
     var triggerKlasses = ['drop__toggle'];
 
     if (this.props.className) {
@@ -112,12 +125,30 @@ const Dropdown = React.createClass({
       triggerProps.title = this.props.triggerTitle;
     }
 
-    // Position.
-    var tetherAttachment = this.props.direction === 'down' ? 'top' : 'bottom';
-    var tetherTargetAttachment = this.props.direction === 'down' ? 'bottom' : 'top';
+    let tetherAttachment;
+    let tetherTargetAttachment;
+    switch (this.props.direction) {
+      case 'up':
+        tetherAttachment = `bottom ${this.props.alignment}`;
+        tetherTargetAttachment = `top ${this.props.alignment}`;
+        break;
+      case 'down':
+        tetherAttachment = `top ${this.props.alignment}`;
+        tetherTargetAttachment = `bottom ${this.props.alignment}`;
+        break;
+      case 'left':
+        tetherAttachment = `${this.props.alignment} left`;
+        tetherTargetAttachment = `${this.props.alignment} right`;
+        break;
+      case 'right':
+        tetherAttachment = `${this.props.alignment} right`;
+        tetherTargetAttachment = `${this.props.alignment} left`;
+        break;
+    }
 
-    tetherAttachment += ' ' + this.props.aligment;
-    tetherTargetAttachment += ' ' + this.props.aligment;
+    if (this.state.open && this.props.triggerActiveClassName) {
+      triggerKlasses.push(this.props.triggerActiveClassName);
+    }
 
     return (
       <TetherComponent

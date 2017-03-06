@@ -137,7 +137,7 @@ var Modal = React.createClass({
         transitionLeaveTimeout={300} >
 
         {this.props.revealed ? (
-          <section className={klasses.join(' ')} key={'modal-' + this.props.id} onClick={this.onOverlayClick} id={'modal-' + this.props.id}>
+          <section className={klasses.join(' ')} key={'modal-' + this.props.id} onClick={this.onOverlayClick} id={this.props.id}>
             <div className='modal__inner'>
               {this.getChild('ModalHeader')}
               {this.getChild('ModalBody')}
