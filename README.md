@@ -1,7 +1,5 @@
 # OAM Design System
 
-**Work in progress.** Use at your own risk!  
-
 The following guide only explains how to include the `oam-design-system` in a new project. For usage information check the [documentation website](http://hotosm.github.io/oam-docs/).  
 
 For information on how to develop the `oam-design-system` checkout the [DEVELOPMENT.md](DEVELOPMENT.md)  
